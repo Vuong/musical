@@ -5,7 +5,7 @@ export interface TintOptions {
   tint: string
 }
 
-export const tint: TransformFactory<TintOptions> = ({ tint }) => {
+export let tint: TransformFactory<TintOptions> = ({ tint }) => {
   if (typeof tint !== 'string' || !tint.length) return
 
   return function tintTransform(image) {
