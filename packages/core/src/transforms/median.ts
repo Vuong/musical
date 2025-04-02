@@ -5,8 +5,8 @@ export interface MedianOptions {
   median: string
 }
 
-export let median: TransformFactory<MedianOptions> = (config) => {
-  let median = config.median ? parseInt(config.median) : undefined
+export const median: TransformFactory<MedianOptions> = (config) => {
+  const median = config.median ? parseInt(config.median) : undefined
 
   if (!median) return
 
