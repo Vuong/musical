@@ -5,7 +5,7 @@ export interface InvertOptions {
   invert: '' | 'true'
 }
 
-export const invert: TransformFactory<InvertOptions> = ({ invert }) => {
+export let invert: TransformFactory<InvertOptions> = ({ invert }) => {
   if (invert !== '' && invert !== 'true') return
 
   return function invertTransform(image) {
