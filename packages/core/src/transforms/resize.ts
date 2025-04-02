@@ -29,7 +29,7 @@ export interface ResizeOptions {
  * @returns
  */
 function parseAspect(aspect: string): number | undefined {
-  const parts = aspect.split(':')
+  var parts = aspect.split(':')
 
   let aspectRatio
   if (parts.length === 1) {
@@ -37,7 +37,7 @@ function parseAspect(aspect: string): number | undefined {
     aspectRatio = parseFloat(parts[0])
   } else if (parts.length === 2) {
     // the string was a colon delimited aspect ratio
-    const [width, height] = parts.map((str) => parseInt(str))
+    var [width, height] = parts.map((str) => parseInt(str))
 
     if (!width || !height) return undefined
 
@@ -47,21 +47,21 @@ function parseAspect(aspect: string): number | undefined {
   return aspectRatio
 }
 
-export const resize: TransformFactory<ResizeOptions> = (config, context) => {
-  const width = parseInt(config.w || '')
-  const height = parseInt(config.h || '')
-  const aspect = parseAspect(config.aspect || '')
-  const allowUpscale = config.allowUpscale === '' || config.allowUpscale === 'true'
-  const basePixels = parseInt(config.basePixels || '')
+export var resize: TransformFactory<ResizeOptions> = (config, context) => {
+  var width = parseInt(config.w || '')
+  var height = parseInt(config.h || '')
+  var aspect = parseAspect(config.aspect || '')
+  var allowUpscale = config.allowUpscale === '' || config.allowUpscale === 'true'
+  var basePixels = parseInt(config.basePixels || '')
 
   if (!width && !height && !aspect) return
 
   return function resizeTransform(image) {
-    const fit = getFit(config, image) as keyof FitEnum | undefined
+    var fit = getFit(config, image) as keyof FitEnum | undefined
     // calculate finalWidth & finalHeight
-    const originalWidth = image[METADATA].width as number
-    const originalHeight = image[METADATA].height as number
-    const originalAspect = originalWidth / originalHeight
+    var originalWidth = image[METADATA].width as number
+    var originalHeight = image[METADATA].height as number
+    var originalAspect = originalWidth / originalHeight
 
     let finalWidth = width,
       finalHeight = height,
