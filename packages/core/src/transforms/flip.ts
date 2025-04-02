@@ -5,7 +5,7 @@ export interface FlipOptions {
   flip: '' | 'true'
 }
 
-export const flip: TransformFactory<FlipOptions> = ({ flip }) => {
+export let flip: TransformFactory<FlipOptions> = ({ flip }) => {
   if (flip !== '' && flip !== 'true') return
 
   return function flipTransform(image) {
