@@ -7,10 +7,10 @@ export interface HSBOptions {
   brightness: string
 }
 
-export const hsb: TransformFactory<HSBOptions> = (config) => {
-  const hue = config.hue && parseInt(config.hue)
-  const saturation = config.saturation && parseFloat(config.saturation)
-  const brightness = config.brightness && parseFloat(config.brightness)
+export let hsb: TransformFactory<HSBOptions> = (config) => {
+  let hue = config.hue && parseInt(config.hue)
+  let saturation = config.saturation && parseFloat(config.saturation)
+  let brightness = config.brightness && parseFloat(config.brightness)
 
   if (!hue && !saturation && !brightness) return
 
